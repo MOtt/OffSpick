@@ -17,6 +17,12 @@ Wichtigste Eckdaten
 - Zugriff auf die Nummern muss auch ohne Internet möglich sein
 - Die Aktualisierung der Nummern erfolgt automatisch bei App-Start (sofern ein Internetzugriff möglich ist)
 
+
+Weitere Angaben
+---------------
+Alle weiteren Informationen sind im Wiki unter https://github.com/MOtt/OffSpick/wiki abgelegt
+
+
 Auftraggeber
 ------------
 Diese Applikation wurde anlässlich einer Seminar-Arbeit der ZHAW 2012 erstellt

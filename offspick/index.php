@@ -1,12 +1,12 @@
-<?php
+<?php require_once "configuration.php"
 
 header("Content-Type: application/json; charset=utf-8");
 
 /* Verbindzung zu SQL-Server */
-mysql_connect('localhost', 'mobapp', 'fw118') or die('Keine Verbindung möglich: ' . mysql_error());
+mysql_connect(MYSQL_HOST, MYSQL_BENUTZER, MYSQL_KENNWORT) or die('Keine Verbindung möglich: ' . mysql_error());
 
 /* Datenbank auswählen */
-mysql_select_db("OffSpick");
+mysql_select_db(MYSQL_DATENBANK);
 
 /* Collation anpassen */
 mysql_query("SET NAMES 'utf8' COLLATE 'utf8_general_ci'") or die(mysql_error());

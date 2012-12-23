@@ -1,0 +1,22 @@
+CACHE MANIFEST
+# 2010-06-18:v2
+
+# Explicitly cached 'master entries'.
+CACHE:
+
+http://code.jquery.com/jquery-1.8.2.min.js
+http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js
+http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css
+index.html
+js/app.js
+firefighter.png
+
+# Resources that require the user to be online.
+NETWORK:
+http://www.feuerwehr-wiesendangen.ch/offapp/offspick/index.php
+
+# static.html will be served if main.py is inaccessible
+# offline.jpg will be served in place of all images in images/large/
+# offline.html will be served in place of all other .html files
+
+# FALLBACK:

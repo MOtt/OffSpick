@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html manifest="http://www.feuerwehr-wiesendangen.ch/offapp/webapp/offspick.mf">
+<link rel="apple-touch-icon" href="firefighter.png"/>
+
+  <head>
+    <title>OffSpick - Übersicht</title>
+	<meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />  
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js" charset="utf-8"></script>
+    <script src="js/app.js" charset="utf-8"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js" charset="utf-8"></script>
+  </head>  
+
+  <body onload="localStorageLoad()">   
+   <div data-role="page" id="offSpickListPage"> 
+  <div data-role="header"><h1>OffSpick</h1></div> 
+    <div data-role="content">
+      <ul data-role="listview" id="offSpickList">
+      </ul>
+    </div>
+  </div>  
+ 
+ 
+
+  </body>  
+ </html> 
+ 

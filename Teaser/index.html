@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Forum' rel='stylesheet' type='text/css'>
+
+<title>Teaser - OffSpick</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: 'Forum', cursive;
+	font-size: 19px;
+}
+-->
+</style></head>
+
+<script type="text/javascript">
+function wechseln (bild)
+{
+  document.getElementById ("bild").src = bild
+}
+</script>
+
+<body>
+
+<table width="654" border="0" align="center">
+  <tr>
+    <td width="121"><img src="pictures/firefighter.png" width="80" height="80" alt="FireFighter"><br></td>
+    <td width="523"><h1>OffSpick (<strong>Off</strong>izier <strong>Spick</strong> - App)</h1></td>
+  </tr>
+</table>
+
+
+<table width="850" border="0" align="center">
+  <tr>
+    <td width="556" align="right" ><p>03:34 - das Telefon reisst einem aus dem Schlaf:<br>       
+      Konferenzgespräch der regionalen Alarmzentrale (Tel 118): <br>       
+      Meldung: 
+      Wasserleitungsbruch, Strasse nicht mehr passierbar<br>
+      <p>03:41 - Offiziere treffen am Schadenplatz ein, verschaffen sich einen Überblick und legen das Vorgehen fest: Abschiebern der Wasserleitung von beiden Seiten, um weiteres Ausströmen von Wasser zu verhindern</p>
+      <p>03:44 - es werden weitere Mittel benötigt: Wasserwart Wiesendangen, Pikettdienst Stadtwerk, Baugeschäft Brossi mit Bagger<br>
+(im Protoyp rechts funktionieren die rot markierten Buttons &quot;Wasserversorgung&quot;, &quot;Baugeschäft&quot; und &quot;Home&quot;!)</p>
+      <p>Hier setzt die mit <a href="http://www.w3.org/TR/html-markup/" target="_blank">HTML5</a>/<a href="http://jquerymobile.com/" target="_blank">jQueryMobile</a> aufgebaute WebApp<strong> </strong>an:<br>         
+      Das in einer <a href="http://dev.mysql.com/" target="_blank">MySQL</a>-Datenbank zentral verwaltete und durch ein einmalig hinterlegter Benutzername/Passwort geschützte Telefonverzeichnis bietet jedem Offizier mit einem Handheld jederzeit schnellen Zugriff auf die aktuell gültigen Spezialnummern.</p>
+      
+        Michael Ott @ ZHAW 2012</td>
+    <td width="10">&nbsp;</td>
+    <td width="270"><img src="pictures/app/offspick.png" width="270" height="488" border="0" usemap="#offspickMap" id="offspick"></td>
+  </tr>
+</table>
+
+<map name="offspickMap">
+  <area shape="rect" coords="23,137,244,181" href="wasserversorgung.html" target="_self">
+  <area shape="rect" coords="24,310,246,353" href="baugeschaeft.html" target="_self">
+</map>
+</body>
+</html>

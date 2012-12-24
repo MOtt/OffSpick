@@ -1,4 +1,4 @@
-<?php require_once "configuration.php"
+<?php require_once "configuration.php";
 
 header("Content-Type: application/json; charset=utf-8");
 

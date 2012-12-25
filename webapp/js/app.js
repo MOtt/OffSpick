@@ -81,67 +81,35 @@ $(document).ready(function(){
 // *******************************************************
 // ab hier folgen die LocalStorage-Funktionen
 // *******************************************************
- 
- 
-function localStorageSave(user, pass) {                
-
+	
+function checkLogin() {
+	
 	try {         
-		localStorage.setItem("LoginUser", user); 
-		localStorage.setItem("LoginPassword", pass);      
-		}      
+		var loginuser = localStorage.getItem('OffUser');
+		var loginpassword = localStorage.getItem('OffPassword'); 
+		
+		if ((loginuser.length > 0) && (loginpassword.length > 0)){
+			console.log('User/Passwort vorhanden: '+loginuser+' / '+loginpassword);
+		}  
+	}
 	catch (e) {        
 		if (e == 'QUOTA_EXCEEDED_ERR') {             
-			console.log("Error: Local Storage limit exceeds.");         
-			}         
+			console.log("Fehler" + e);         
+			}
 	else {             
-		console.log("Error: Saving to local storage.");         
+		console.log('Benutzer / Passwort unvollständig');         
 		}     
 	}  
-}   
+} 	
+	
 
-function localStorageGet() {     
-	console.log("Getting your data from local storage.");    
-	var username = document.getElementById("name");     
-	var age = document.getElementById("age");     
-	username.value = localStorage.getItem("name");     
-	age.value = localStorage.getItem("age");      
-}   
-
-function localStorageRemoveUser() {     
-	console.log("Removing data from local storage.");     
-	localStorage.removeItem("LoginUser");     
-	localStorage.removeItem("LoginPassword");      
-}   
-
-function localStorageClear() {     
-	console.log("Clearing local storage.");      
-	localStorage.clear();      
-}   
-
-function localStorageSaveJSON() {     
-	console.log("Saving complex data to local storage.");     
-	var username = document.getElementById("name");     
-	var age = document.getElementById("age");     
-	var personObject = new Object();     
-	personObject.name = username.value;     
-	personObject.age = age.value;     
-	localStorage.setItem("person", JSON.stringify(personObject));     
-}   
-
-function localStorageRestoreJSON() {     
-	console.log("Restoring complex data from local storage.");     
-	var username = document.getElementById("name");     
-	var age = document.getElementById("age");     
-	var personObject = JSON.parse(localStorage.getItem("person"));     
-	username.value = personObject.name;     
-	age.value = personObject.age; }     
-
-function localStorageLoad() {          
-	console.log("Page load finished");     
+function localStorageLoad() {              
 	if (typeof(Storage) == "undefined" ) {             
-		alert("Your browser does not support HTML5 localStorage. Try upgrading.");     
+		alert("Dein Browser unterstützt den HTML5 Storage nicht. Browser updaten...");     
 	}      
 	else {         
-		console.log("Both localStorage and sessionStorage support is there.");     
+		console.log("LocalStorage und SessionStorage werden unterstützt.");     
+		checkLogin();
 		}
 }
+

@@ -111,7 +111,7 @@ function saveLogin() {
 
 function localStorageLoad() {              
 	if (typeof(Storage) == "undefined" ) {             
-		alert("Browser kennt HTML5 Storage nicht. Browser updaten...");     
+		alert("kein HTML5 Storage. Browser updaten...");     
 	}      
 	else {         
 		checkLoginData();

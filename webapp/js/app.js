@@ -34,13 +34,17 @@ catch(e){
 
 
 $(document).bind('mobileinit',function(){						   
-	console.log('MobileInit');
+
+	$.mobile.page.prototype.options.addBackBtn = true;
+	$.mobile.page.prototype.options.backBtnText = "Home";	
+
 	$('#offSpickListPage').live('pageinit',function(toPage,options){	 
-		checkLoginData();									 
+		checkLoginData();	
+	
 	});
 	
 	$('#loginForm').live('pageinit',function(toPage,options){		 
-		$('#loginBtn').live('click',saveLogin);									 
+		$('#loginBtn').live('click',saveLogin);			
 	});
 });
 

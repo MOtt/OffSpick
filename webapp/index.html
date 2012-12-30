@@ -13,7 +13,8 @@
 <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js" charset="utf-8"></script>
 </head>
 <body>
-<div data-role="page" id="offSpickListPage" data-add-back-btn="true">
+
+<div data-role="page" id="offSpickListPage" data-add-back-btn="true" data-back-btn-text="Home">
   <div data-role="header">
     <h1>OffSpick</h1>
   </div>
@@ -22,7 +23,8 @@
     </ul>
   </div>
 </div>
-<div data-role="page" id="loginForm" data-rel="dialog">
+
+<div data-role="page" id="loginForm" data-rel="dialog" data-add-back-btn="false">
   <div data-role="header">
     <h1>Benutzer anmelden</h1>
   </div>
@@ -33,7 +35,7 @@
     </div>
     <div data-role="fieldcontain">
       <label for="pw">Passwort:</label>
-      <input type="text" name="pw" id="pw" value="" />
+      <input type="password" name="pw" id="pw" value="" />
     </div>
     <button id="loginBtn">Speichern</button>
   </div>

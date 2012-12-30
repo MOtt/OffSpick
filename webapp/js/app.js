@@ -72,7 +72,7 @@ function checkLoginData() {
 	}
 	catch (e) {        
 		if (e == 'QUOTA_EXCEEDED_ERR') {             
-			console.log("Fehler" + e);         
+			alert("Fehler" + e);         
 			}
 	else {             
 		alert("Benutzername oder Passwort ist leer");
@@ -96,10 +96,10 @@ function saveLogin() {
 		}      
 	catch (e) {        
 		if (e == "QUOTA_EXCEEDED_ERR") {             
-			console.log("Fehler: LocalStorage voll");         
+			alert("Fehler: LocalStorage voll");         
 			}         
 	else {             
-		console.log("Fehler: Speichern in LocalStorage nicht möglich");         
+		alert("Fehler: Speichern in LocalStorage nicht möglich");         
 		}     
 	}  
 }
@@ -111,10 +111,9 @@ function saveLogin() {
 
 function localStorageLoad() {              
 	if (typeof(Storage) == "undefined" ) {             
-		alert("Dein Browser unterstützt den HTML5 Storage nicht. Browser updaten...");     
+		alert("Browser kennt HTML5 Storage nicht. Browser updaten...");     
 	}      
 	else {         
-		console.log("LocalStorage und SessionStorage werden unterstützt.");     
 		checkLoginData();
 		}
 }
@@ -133,17 +132,15 @@ function requestSession() {
  	 url: '../offspick/',
  	 data: {'func': 'offSpickCheckLogin', 'user': loginuser, 'pw': loginpw},
  	 success: function(data){
-		 					console.log(data);
 							if (data.success === true){
-								
-							requestOffSpickList();
+								requestOffSpickList();
 							
 								}
-								else {
-									// ggf. Alert durch Popup ersetzen
-									alert("Passwort falsch");
-									$.mobile.changePage("#loginForm"); 
-									}
+							else {
+								// ggf. Alert durch Popup ersetzen
+								alert("Benutzer/Passwort falsch");
+								$.mobile.changePage("#loginForm"); 
+								}
 							},
 	 error: function(request, text, errorObj){							
 							// entspricht dem Fall "Server nicht erreichbar" -> Lokale Daten prüfen ob vorhanden und ohne weitere Authentifizierung anzeigen
@@ -165,7 +162,6 @@ function requestOffSpickList(){
  	 data: {'func': 'offSpickList'},
  	 success: function(data){
 		 					if (data.success === true && data.result.length>0){
-								console.log("versuche Daten abzuspeichern");
 								localStorage.setItem("OffSpickList", JSON.stringify(data.result)); 
 								showOffSpickOffline()
 							}

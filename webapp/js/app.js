@@ -18,20 +18,23 @@ try{
 		}
 
 		if ($currentCategory == param[i].categoryName) {
-			ul.append('<li data-icon="grid"><a data-id="'+param[i].contactId+'" href="tel:'+param[i].contactNumber+'">'+param[i].contactName+'<p>'+param[i].contactDescription+'</p></a></li>');
+			ul.append('<li data-icon="grid"><a data-id="'+param[i].contactId+'" href="tel:'+param[i].contactNumber+'">'+param[i].contactName+'<p></br>'+param[i].contactDescription+'</p></a></li>');
 		}
 		li.append(ul);
 		offSpickList.append(li);
 	}
-	
 	offSpickList.listview('refresh');
 }
 
 catch(e){
-	alert(e);
+		alert("Fehler: " + e);  
 		}
 }	
 
+
+// ***************************************************************************************************
+// Fügt die Event-Handler an die Ereignise an
+// ***************************************************************************************************
 
 $(document).bind('mobileinit',function(){						   
 
@@ -40,7 +43,6 @@ $(document).bind('mobileinit',function(){
 
 	$('#offSpickListPage').live('pageinit',function(toPage,options){	 
 		checkLoginData();	
-	
 	});
 	
 	$('#loginForm').live('pageinit',function(toPage,options){		 
@@ -48,9 +50,10 @@ $(document).bind('mobileinit',function(){
 	});
 });
 
-
+/*
 $(document).ready(function(){
 });
+ */
  
  
 // ***************************************************************************************************
@@ -72,10 +75,10 @@ function checkLoginData() {
 	}
 	catch (e) {        
 		if (e == 'QUOTA_EXCEEDED_ERR') {             
-			alert("Fehler" + e);         
+			alert("Fehler: " + e);         
 			}
 	else {             
-		alert("Benutzername oder Passwort ist leer");
+		alert("Fehler: Benutzername oder Passwort ist leer");
 		$.mobile.changePage("#loginForm"); 
 		}     
 	}  
@@ -96,7 +99,7 @@ function saveLogin() {
 		}      
 	catch (e) {        
 		if (e == "QUOTA_EXCEEDED_ERR") {             
-			alert("Fehler: LocalStorage voll");         
+			alert("Fehler: LocalStorage ist voll");         
 			}         
 	else {             
 		alert("Fehler: Speichern in LocalStorage nicht möglich");         
@@ -111,7 +114,7 @@ function saveLogin() {
 
 function localStorageLoad() {              
 	if (typeof(Storage) == "undefined" ) {             
-		alert("kein HTML5 Storage. Browser updaten...");     
+		alert("Fehler: kein HTML5 Storage. Browser updaten!");     
 	}      
 	else {         
 		checkLoginData();
@@ -134,11 +137,9 @@ function requestSession() {
  	 success: function(data){
 							if (data.success === true){
 								requestOffSpickList();
-							
 								}
 							else {
-								// ggf. Alert durch Popup ersetzen
-								alert("Benutzer/Passwort falsch");
+								alert("Fehler: Benutzer/Passwort falsch");
 								$.mobile.changePage("#loginForm"); 
 								}
 							},
@@ -166,12 +167,12 @@ function requestOffSpickList(){
 								showOffSpickOffline()
 							}
 							else {
-								alert("Fehler - lokale Daten werden verwendet");
+								alert("Fehler: lokale Daten werden verwendet");
 								showOffSpickOffline()
 								}
 							},
  	 error: function(request, text, errorObj){
-		 					alert("Fehler - lokale Daten werden verwendet");
+		 					alert("Fehler: lokale Daten werden verwendet");
 							showOffSpickOffline()
 	 						}
 	 });
@@ -189,6 +190,6 @@ function showOffSpickOffline() {
 		offSpickListInsert(param);
 	}
 	catch (e) {
-		alert("Fehler - keine lokale Daten vorhanden");
+		alert("Fehler: keine lokale Daten vorhanden");
 	}
 }

@@ -25,7 +25,7 @@ $func = $_REQUEST["func"];
 
 
 // ***************************************************************************************************
-// Liest Kontaktdaten aus der Datenban aus und liefert diese als JSON zurück
+// Liest Kontaktdaten aus der Datenbank aus und liefert diese als JSON zurück
 // ***************************************************************************************************
 function offSpickList($param){
 
@@ -33,7 +33,7 @@ function offSpickList($param){
 	$entries = array();
 	$datetoday = date("Y-m-d");
 
-	$sqlstring = "select cc.categoryID,ca.Text,ca.Description,cc.ContactID,c.Name,c.Description,cn.Phone from OffSpick.ContactCategory cc inner join OffSpick.Category ca on ca.ID=cc.CategoryID inner join OffSpick.Contact c on c.ID = cc.ContactID inner join OffSpick.ContactNumber cn on cc.ContactID = cn.ID where '".$datetoday."' between ca.ValidFrom and ca.ValidTo and '".$datetoday."' between c.ValidFrom and c.ValidTo order by ca.Sort,c.Sort";
+	$sqlstring = "SELECT cc.categoryID, ca.Text, ca.Description, cc.ContactID, c.Name, c.Description, cn.Phone FROM OffSpick.ContactCategory cc INNER JOIN OffSpick.Category ca ON ca.ID=cc.CategoryID INNER JOIN OffSpick.Contact c ON c.ID = cc.ContactID INNER JOIN OffSpick.ContactNumber cn ON cc.ContactID = cn.ID WHERE '".$datetoday."' BETWEEN ca.ValidFrom AND ca.ValidTo AND '".$datetoday."' BETWEEN c.ValidFrom AND c.ValidTo ORDER BY ca.Sort, c.Sort";
 
 
 	$result = $db->query($sqlstring);
